@@ -11,6 +11,7 @@ class Tag(models.Model):
         Hero,
         on_delete=models.CASCADE,
         null=True,
+        related_name="tags",
     )
 
     def __str__(self):
@@ -23,6 +24,8 @@ class Tag(models.Model):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('label', 'hero')
+
+    list_filter = ('hero',)
 
 
 class TagRepository:

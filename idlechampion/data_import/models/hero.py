@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.db import models
 
 
@@ -47,36 +46,6 @@ class Hero(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['game_id'], name='game_id'),
         ]
-
-
-@admin.register(Hero)
-class HeroAdmin(admin.ModelAdmin):
-    list_display = (
-        'name',
-        'seat_id',
-        'race',
-        'alignment',
-        'hero_class',
-    )
-
-    readonly_fields = (
-        'name',
-        'seat_id',
-        'race',
-        'alignment',
-        'hero_class',
-        'full_name',
-        'alignment',
-        'backstory',
-        'age',
-        'charisma',
-        'constitution',
-        'dexterity',
-        'intelligence',
-        'strength',
-        'wisdom',
-        'game_id',
-    )
 
 
 class HeroRepository:
