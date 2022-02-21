@@ -45,3 +45,7 @@ class HeroAdmin(admin.ModelAdmin):
     inlines = [
         TagInLine,
     ]
+
+    list_filter = (
+        'availability',
+    )
