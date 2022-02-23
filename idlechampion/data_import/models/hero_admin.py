@@ -21,6 +21,8 @@ class HeroAdmin(admin.ModelAdmin):
         'race',
         'alignment',
         'hero_class',
+        'should_pay_tribute',
+        'is_unlocked',
     )
 
     readonly_fields = (
@@ -48,4 +50,10 @@ class HeroAdmin(admin.ModelAdmin):
 
     list_filter = (
         'availability',
+        'seat_id',
+        'is_unlocked',
+    )
+
+    search_fields = (
+        'name',
     )

@@ -46,6 +46,13 @@ class Hero(models.Model):
         default=HeroAvailability.EVENT,
         blank=False,
     )
+    should_pay_tribute = models.BooleanField(
+        default=False,
+        verbose_name='GOAT',
+    )
+    is_unlocked = models.BooleanField(
+        default=False,
+    )
 
     def __str__(self):
         return self.name
