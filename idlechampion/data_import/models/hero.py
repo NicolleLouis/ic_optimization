@@ -65,5 +65,13 @@ class Hero(models.Model):
 
 class HeroRepository:
     @staticmethod
-    def get_or_create_by_game_id(game_id):
+    def get_all() -> models.query.QuerySet:
+        return Hero.objects.all()
+
+    @staticmethod
+    def get_or_create_by_game_id(game_id) -> (Hero, bool):
         return Hero.objects.get_or_create(game_id=game_id)
+
+    @staticmethod
+    def get_by_game_id(game_id) -> Hero:
+        return Hero.objects.get(game_id=game_id)

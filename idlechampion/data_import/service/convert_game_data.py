@@ -6,7 +6,7 @@ from data_import.models import Tag
 from data_import.models.hero import HeroRepository
 
 
-class ConvertData:
+class ConvertGameData:
     game_data_file = 'data_import/files/game_data.json'
 
     @classmethod
