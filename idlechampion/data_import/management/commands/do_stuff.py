@@ -7,4 +7,4 @@ class Command(BaseCommand):
     help = 'Stuff'
 
     def handle(self, *args, **options):
-        ConvertUserData.unlock_heroes()
+        ConvertUserData.update_all_loot()
