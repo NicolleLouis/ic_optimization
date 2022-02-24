@@ -17,7 +17,7 @@ class TagInLine(admin.TabularInline):
 class HeroAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'seat_id',
+        'average_loot_level',
         'race',
         'alignment',
         'hero_class',
@@ -42,6 +42,8 @@ class HeroAdmin(admin.ModelAdmin):
         'strength',
         'wisdom',
         'game_id',
+        'average_loot_level',
+        'is_unlocked',
     )
 
     inlines = [

@@ -8,5 +8,9 @@ class Command(BaseCommand):
     help = 'Import Game Data'
 
     def handle(self, *args, **options):
+        print('#####')
+        print('Downloading Data')
         ImportDataService.import_game_data()
+        print('#####')
+        print('Generate Heroes')
         ConvertGameData.generate_heroes_from_game_data()

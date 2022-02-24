@@ -30,7 +30,7 @@ class ImportDataService:
     def import_user_data(cls):
         url = f"{cls.base_url}{cls.user_data_url}"
         params = {
-            "instance_key": '0',
+            "instance_key": '1',
             "user_id": cls.user_id,
             "hash": cls.user_hash,
         }

@@ -10,6 +10,7 @@ class Loot(models.Model):
     hero = models.ForeignKey(
         Hero,
         on_delete=models.CASCADE,
+        related_name='loots',
     )
     enchant = models.IntegerField(
         null=True,
@@ -20,6 +21,9 @@ class Loot(models.Model):
     gild = models.IntegerField(
         default=0,
     )
+
+    def __str__(self):
+        return f'{self.hero}: {self.slot_id}'
 
     class Meta:
         unique_together = [['hero', 'slot_id']]

@@ -53,9 +53,31 @@ class Hero(models.Model):
     is_unlocked = models.BooleanField(
         default=False,
     )
+    average_loot_level = models.IntegerField(
+        null=True,
+    )
 
     def __str__(self):
         return self.name
+
+    def update_values(self):
+        self.compute_average_loot_level()
+        self.save()
+
+    def compute_average_loot_level(self):
+        loots = self.loots.all()
+        if len(loots) == 0:
+            return None
+        loots_level = list(
+            map(
+                lambda loot: loot.enchant,
+                loots
+            )
+        )
+        average_loot_level = int(
+            sum(loots_level)/len(loots_level)
+        )
+        self.average_loot_level = average_loot_level
 
     class Meta:
         constraints = [
