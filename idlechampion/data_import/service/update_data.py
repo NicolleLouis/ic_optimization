@@ -1,4 +1,5 @@
 from data_import.models import Hero
+from data_import.models.meta_data import MetaDataRepository
 
 
 class UpdateData:
@@ -11,3 +12,7 @@ class UpdateData:
                 heroes
             )
         )
+
+    @staticmethod
+    def update_metadata():
+        MetaDataRepository.get_data().update()

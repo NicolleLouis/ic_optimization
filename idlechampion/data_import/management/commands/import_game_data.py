@@ -14,3 +14,6 @@ class Command(BaseCommand):
         print('#####')
         print('Generate Heroes')
         ConvertGameData.generate_heroes_from_game_data()
+        print('#####')
+        print('Generate Potions')
+        ConvertGameData.generate_potions_from_game_data()

@@ -34,6 +34,7 @@ class LootAdmin(admin.ModelAdmin):
     list_display = (
         'hero',
         'slot_id',
+        'enchant',
     )
 
     search_fields = ('hero__name',)

@@ -4,18 +4,36 @@ import django
 
 from data_import.models import Tag
 from data_import.models.hero import HeroRepository
+from data_import.models.potion import PotionRepository
 
 
 class ConvertGameData:
     game_data_file = 'data_import/files/game_data.json'
 
     @classmethod
+    def generate_potions_from_game_data(cls):
+        file = open(cls.game_data_file)
+        all_potion_data = json.load(file)["buff_defines"]
+        file.close()
+        for raw_potion_data in all_potion_data:
+            cls.convert_raw_potion_data(raw_potion_data)
+
+    @staticmethod
+    def convert_raw_potion_data(raw_potion_data):
+        potion_id = raw_potion_data["id"]
+        potion, _created = PotionRepository.get_or_create(
+            potion_id=potion_id
+        )
+        potion.name = raw_potion_data["name"]
+        potion.save()
+
+    @classmethod
     def generate_heroes_from_game_data(cls):
         file = open(cls.game_data_file)
         heroes_data = json.load(file)["hero_defines"]
+        file.close()
         for hero_data in heroes_data:
             cls.convert_raw_hero_data(hero_data)
-        file.close()
 
     @staticmethod
     def convert_raw_hero_data(raw_hero_data):
