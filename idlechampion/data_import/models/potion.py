@@ -27,6 +27,10 @@ class PotionAdmin(admin.ModelAdmin):
         'amount',
     )
 
+    search_fields = (
+        'name',
+    )
+
     def has_change_permission(self, request, obj=None):
         return False
 

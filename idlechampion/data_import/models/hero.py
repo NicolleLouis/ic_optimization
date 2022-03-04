@@ -97,3 +97,11 @@ class HeroRepository:
     @staticmethod
     def get_by_game_id(game_id) -> Hero:
         return Hero.objects.get(game_id=game_id)
+
+    @staticmethod
+    def get_number_of_tribute_champion() -> int:
+        return Hero.objects.filter(should_pay_tribute=True).count()
+
+    @staticmethod
+    def get_tribute_champion() -> models.query.QuerySet:
+        return Hero.objects.filter(should_pay_tribute=True)

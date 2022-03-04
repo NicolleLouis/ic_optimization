@@ -46,8 +46,6 @@ class ConvertGameData:
 
         hero.name = raw_hero_data["name"]
 
-        print(raw_hero_data["name"])
-
         hero.backstory = character_sheet_details["backstory"]
         hero.hero_class = character_sheet_details["class"]
         hero.seat_id = raw_hero_data["seat_id"]

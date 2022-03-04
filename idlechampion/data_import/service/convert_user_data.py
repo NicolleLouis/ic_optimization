@@ -12,8 +12,8 @@ class ConvertUserData:
     def unlock_heroes(cls):
         cls.reset_all_heroes_unlock_state()
         file = open(cls.game_data_file)
-        file.close()
         heroes_data = json.load(file)["details"]["heroes"]
+        file.close()
         for raw_hero in heroes_data:
             cls.unlock_hero(raw_hero)
 
